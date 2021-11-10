@@ -2,8 +2,8 @@ function A = psi_optimize_balanced(m,n,r,c)
     % If m <= n, one may call this function with m,n and r,c interchanged
     % and transpose the output matrix to get the required matrix. This
     % leads to faster processing times in general. For example, if m = 300,
-    % n = 100, r = 10, and c = 3, one may use the snippet:
-    % B = psi_optimize_balanced(1000, 3000, 3, 10);
+    % n = 1000, r = 10, and c = 3, one may use the snippet:
+    % B = psi_optimize_balanced(1000, 300, 3, 10);
     % A = transpose(B);
     % This functions returns a psi optimized matrix with the input params.
     
@@ -42,7 +42,7 @@ function A = psi_optimize_balanced(m,n,r,c)
     [ni,nj] = find(A);
 
     % Total number of iterations
-    NumIter = 10000000;
+    NumIter = n*r*c;
 
     % Print the initial value of the optimization metric
     fprintf("Iteration 0: %d\n",Metric);
