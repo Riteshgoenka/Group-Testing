@@ -80,7 +80,7 @@ for k=1:K
     T = zeros(N,N);
     S = zeros(N,N);
     L = zeros(N,N);
-    for i=1:N
+    for i=1:(N-1)
        for j=(i+1):N
            if (A(i,j) == 1)
                T(i,j) = 1 + 9999*rand;
