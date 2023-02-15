@@ -81,11 +81,14 @@ for k=1:K
     S = zeros(N,N);
     L = zeros(N,N);
     for i=1:N
-       for j=1:N
+       for j=(i+1):N
            if (A(i,j) == 1)
                T(i,j) = 1 + 9999*rand;
                S(i,j) = 1 + 99*rand;
                L(i,j) = T(i,j)^alpha_t * S(i,j)^alpha_s * max(ViralLoads(i),ViralLoads(j))^alpha_v;
+               T(j,i) = T(i,j);
+               S(j,i) = S(i,j);
+               L(j,i) = L(i,j);
            end
        end
     end
